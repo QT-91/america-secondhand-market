@@ -1,10 +1,11 @@
-import React from 'react';
-import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, FlatList, Image, Alert, StyleSheet } from 'react-native';
+import api, { dbURL } from '../hooks/api'
 
 import { ProductItem } from '@/shared/types';
 
 
-const data: ProductItem[] = [
+const productsSampleData: ProductItem[] = [
   {
     id: 1,
     title: 'Item 1',
@@ -73,23 +74,54 @@ const ProductItemView = ({ item }: { item: ProductItem }) => (
     <View style={{ maxWidth: '66%' }}>
       <Text style={styles.titleText}>{item.title}</Text>
       <Text style={styles.descriptionText}>{item.description}</Text>
-      <Text style={styles.priceText}>{item.price}</Text>
+      <Text style={styles.priceText}>{item.price}$</Text>
     </View>
     <View>
       {item.images.length > 0 && (
-        <Image source={{ uri: item.images[0].file }} style={styles.imageStyle} />
+        <Image source={{ uri: dbURL + item.images[0].image.file }} style={styles.imageStyle} />
       )}
     </View>
   </View>
 );
 
-const ProductListScreen = () => (
-  <FlatList
-    data={data}
-    renderItem={({ item }) => <ProductItemView item={item} />}
-    keyExtractor={item => String(item.id)}
-  />
-);
+const ProductListScreen = () => {
+  const [products, setProducts] = React.useState<ProductItem[]>([])
+
+  useEffect(() => {
+    fetchProducts();
+  }, [])
+
+  const fetchProducts = async () => {
+    try {
+      const res = await api.get('product/');
+      setProducts(res.data);
+    } catch (error) {
+      createAlert(error)
+    }
+  };
+
+  const createAlert = (error: any) => {
+    Alert.alert('Error', error.message, [
+      {
+        text: 'Send Feedback',
+        style: 'default',
+        onPress: () => console.log('Send Feedback pressed'),
+      },
+      {
+        text: 'Close',
+        style: 'cancel',
+      },
+    ]);
+  };
+
+  return (
+    <FlatList
+      data={products}
+      renderItem={({ item }) => <ProductItemView item={item} />}
+      keyExtractor={item => String(item.id)}
+    />
+  )
+};
 
 const styles = StyleSheet.create({
   itemContainer: {

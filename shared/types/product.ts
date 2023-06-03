@@ -1,9 +1,14 @@
 import { ImageData } from './image';
 
+export interface ProductImageData {
+  id: number;
+  image: ImageData;
+}
+
 export interface ProductItem {
   id: number;
   title: string;
-  images: ImageData[];
+  images: ProductImageData[];
   description: string;
   price: number;
   category: string;
