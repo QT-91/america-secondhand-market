@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MapView, { Marker } from 'react-native-maps';
 import { StyleSheet, View, Text, Button } from 'react-native';
-import useLocation from '../hooks/useLocation';
+import useLocation from '@/hooks/useLocation';
 
 export default function MapScreen() {
   const { location, errorMsg } = useLocation();

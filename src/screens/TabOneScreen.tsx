@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, Text, FlatList, Image, Alert, StyleSheet } from 'react-native';
-import api, { dbURL } from '../hooks/api'
+import api, { dbURL } from '@/hooks/api'
 
 import { ProductItem } from '@/shared/types';
 

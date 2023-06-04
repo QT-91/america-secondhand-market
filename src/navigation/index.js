@@ -7,7 +7,7 @@ import {
 } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import NotFoundScreen from "../screens/NotFoundScreen";
+import NotFoundScreen from "@/screens/NotFoundScreen";
 import BottomTabNavigator from "./BottomTabNavigator";
 import LinkingConfiguration from "./LinkingConfiguration";
 

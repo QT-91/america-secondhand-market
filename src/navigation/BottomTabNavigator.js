@@ -5,10 +5,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { useColorScheme } from "react-native";
 
-import Colors from "../constants/Colors";
-import TabOneScreen from "../screens/TabOneScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
-import MapScreen from "../screens/MapScreen";
+import Colors from "@/constants/Colors";
+import TabOneScreen from "@/screens/TabOneScreen";
+import TabTwoScreen from "@/screens/TabTwoScreen";
+import MapScreen from "@/screens/MapScreen";
 
 const BottomTab = createBottomTabNavigator();
 

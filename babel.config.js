@@ -10,6 +10,14 @@ module.exports = function (api) {
         },
       ],
     ],
-    plugins: ["react-native-reanimated/plugin", "dotenv-import"],
+    plugins: [
+      "react-native-reanimated/plugin", 
+      "dotenv-import",
+      ["module-resolver", {
+        "alias": {
+          "@": "./src",
+        }
+      }]
+    ],
   };
 };
