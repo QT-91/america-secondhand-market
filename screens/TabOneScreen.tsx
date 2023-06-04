@@ -10,8 +10,8 @@ const productsSampleData: ProductItem[] = [
     id: 1,
     title: 'Item 1',
     images: [
-      { id: 0, title: 'Image 1', file: 'https://via.placeholder.com/150' },
-      { id: 1, title: 'Image 2', file: 'https://via.placeholder.com/150' },
+      { id: 0, image: { id: 0, title: 'Image 1', file: 'https://via.placeholder.com/150' } },
+      { id: 1, image: { id: 1, title: 'Image 2', file: 'https://via.placeholder.com/150' } },
     ],
     description: 'description',
     price: 1000,
@@ -25,8 +25,8 @@ const productsSampleData: ProductItem[] = [
     id: 2,
     title: 'Item 2',
     images: [
-      { id: 0, title: 'Image 1', file: 'https://via.placeholder.com/150' },
-      { id: 1, title: 'Image 2', file: 'https://via.placeholder.com/150' },
+      { id: 0, image: { id: 0, title: 'Image 1', file: 'https://via.placeholder.com/150' } },
+      { id: 1, image: { id: 1, title: 'Image 2', file: 'https://via.placeholder.com/150' } },
     ],
     description: 'descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription',
     price: 1000,
@@ -40,8 +40,8 @@ const productsSampleData: ProductItem[] = [
     id: 3,
     title: 'Item 3',
     images: [
-      { id: 0, title: 'Image 1', file: 'https://via.placeholder.com/150' },
-      { id: 1, title: 'Image 2', file: 'https://via.placeholder.com/150' },
+      { id: 0, image: { id: 0, title: 'Image 1', file: 'https://via.placeholder.com/150' } },
+      { id: 1, image: { id: 1, title: 'Image 2', file: 'https://via.placeholder.com/150' } },
     ],
     description: 'description',
     price: 1000,
@@ -55,8 +55,8 @@ const productsSampleData: ProductItem[] = [
     id: 4,
     title: 'Item 4',
     images: [
-      { id: 0, title: 'Image 1', file: 'https://via.placeholder.com/150' },
-      { id: 1, title: 'Image 2', file: 'https://via.placeholder.com/150' },
+      { id: 0, image: { id: 0, title: 'Image 1', file: 'https://via.placeholder.com/150' } },
+      { id: 1, image: { id: 1, title: 'Image 2', file: 'https://via.placeholder.com/150' } },
     ],
     description: 'description',
     price: 1000,
