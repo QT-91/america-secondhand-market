@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, FlatList, Image, Alert, StyleSheet } from 'react-native';
+import { View, Text, FlatList, Image, Alert, StyleSheet, TouchableOpacity } from 'react-native';
 import api, { dbURL } from '@/hooks/api'
 
 import { ProductItem } from '@/shared/types';
@@ -69,27 +69,33 @@ const productsSampleData: ProductItem[] = [
   // More items...
 ];
 
-const ProductItemView = ({ item }: { item: ProductItem }) => (
-  <View style={styles.itemContainer}>
-    <View style={{ maxWidth: '66%' }}>
-      <Text style={styles.titleText}>{item.title}</Text>
-      <Text style={styles.descriptionText}>{item.description}</Text>
-      <Text style={styles.priceText}>{item.price}$</Text>
-    </View>
-    <View>
-      {item.images.length > 0 && (
-        <Image source={{ uri: dbURL + item.images[0].image.file }} style={styles.imageStyle} />
-      )}
-    </View>
-  </View>
-);
 
-const ProductListScreen = () => {
+const ProductListScreen = (props) => {
+  const { navigation } = props;
   const [products, setProducts] = React.useState<ProductItem[]>([])
-
+  
   useEffect(() => {
     fetchProducts();
   }, [])
+  
+  const onPress = (item: ProductItem) => {
+    navigation.navigate("TabOneDetailScreen", { item });
+  };
+
+  const ProductItemView = ({ item }: { item: ProductItem }) => (
+    <TouchableOpacity style={styles.itemContainer} onPress={() => onPress(item)}>
+      <View style={{ maxWidth: '66%' }}>
+        <Text style={styles.titleText}>{item.title}</Text>
+        <Text style={styles.descriptionText}>{item.description}</Text>
+        <Text style={styles.priceText}>{item.price}$</Text>
+      </View>
+      <View>
+        {item.images.length > 0 && (
+          <Image source={{ uri: dbURL + item.images[0].image.file }} style={styles.imageStyle} />
+        )}
+      </View>
+    </TouchableOpacity>
+  );
 
   const fetchProducts = async () => {
     try {
