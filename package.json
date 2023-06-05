@@ -42,5 +42,6 @@
   },
   "version": "1.0.0",
   "private": true,
-  "name": "template-naigation"
+  "name": "asm",
+  "packageManager": "yarn@3.6.0"
 }
