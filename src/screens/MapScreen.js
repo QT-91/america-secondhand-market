@@ -19,13 +19,33 @@ export default function MapScreen() {
     setIsMapReady(true);
   }
 
-  animateToUserRegion = (duration=1500) => {
-    MapViewRef.current.animateToRegion({
-      latitude: location.coords.latitude,
-      longitude: location.coords.longitude,
-      latitudeDelta: 0.0922 / 10,
-      longitudeDelta: 0.0421 / 10,
-    }, duration)
+  animateToUserRegion = () => {
+    if (MapViewRef.current) {
+      MapViewRef.current.getCamera().then((camera) => {
+        const distance = Math.sqrt(
+          Math.pow(camera.center.latitude - location.coords.latitude, 2) + Math.pow(camera.center.longitude - location.coords.longitude, 2)
+        )
+
+        // 1 distance = 111km, so convert it to kilometers
+        const distanceInKilometers = distance * 111;
+
+        // Define duration as 1 second per 10 kilometers
+        let duration = distanceInKilometers / 10;
+
+        if (duration > 3) {
+          duration = 3;
+        } else if (duration < 0.5) {
+          duration = 0.5;
+        }
+
+        MapViewRef.current.animateToRegion({
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+          latitudeDelta: 0.0922 / 10,
+          longitudeDelta: 0.0421 / 10,
+        }, duration * 1000)
+      })
+    }
   }
 
   return (
@@ -50,7 +70,7 @@ export default function MapScreen() {
         </MapView>
 
         <View style={styles.sideMenuContainer}>
-          <Button title='Current' onPress={() => { animateToUserRegion(0) }} />
+          <Button title='Current' onPress={animateToUserRegion} />
         </View>
         </>
       ) : (
