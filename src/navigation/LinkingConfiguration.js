@@ -16,6 +16,11 @@ export default {
               TabOneScreen: "one",
             },
           },
+          Map: {
+            screens: {
+              MapScreen: "map",
+            },
+          },
           TabTwo: {
             screens: {
               TabTwoScreen: "two",

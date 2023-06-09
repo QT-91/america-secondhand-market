@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "templatenaigation",
-    "slug": "expo-template-tabs",
+    "name": "ASM",
+    "slug": "america-secondhand-market",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -15,18 +15,42 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.humanet.asm"
     },
     "android": {
-      "adaptiveIcon": {
+      "package": "com.humanet.asm",
+        "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.FOREGROUND_SERVICE"
+      ]
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "bd8de006-b174-4775-9bac-e3f6dbc99178"
+      }
+    },
+    "owner": "qt-91",
+    "schema": "com.googleusercontent.apps.1083976217845-e3qud613e0mfujneh8df7tcq1mnkacbc"
   }
 }
