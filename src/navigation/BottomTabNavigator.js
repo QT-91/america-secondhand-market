@@ -76,7 +76,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneDetailScreen"
         component={TabOneDetailScreen}
-        options={{ headerTitle: "Tab One Detail Title" }}
+        options={{ headerTitle: "" }}
       />
     </TabOneStack.Navigator>
   );
