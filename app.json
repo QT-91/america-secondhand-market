@@ -19,10 +19,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.humanet.asm"
     },
     "android": {
-      "adaptiveIcon": {
+      "package": "com.humanet.asm",
+        "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
@@ -48,6 +50,7 @@
         "projectId": "bd8de006-b174-4775-9bac-e3f6dbc99178"
       }
     },
-    "owner": "qt-91"
+    "owner": "qt-91",
+    "schema": "com.googleusercontent.apps.1083976217845-e3qud613e0mfujneh8df7tcq1mnkacbc"
   }
 }
